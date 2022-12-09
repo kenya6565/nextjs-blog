@@ -13,16 +13,74 @@ export default function Home() {
       </section>
       <section>
         <h2>🗒エンジニアのブログ</h2>
-        <div>
+        <div className={styles.grid}>
           <article>
             <Link href="/">
-              <img src="/images/thumbnail01.jpg" alt="" />
+              <img
+                src="/images/thumbnail01.jpg"
+                className={styles.thumbnailImage}
+              />
             </Link>
             <Link href="/">
-              <p>SSGとSSRの使い分けの場面はいつなのか？</p>
+              <p className={utilStyles.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </p>
             </Link>
             <br />
-            <small>10th of December, 2022</small>
+            <small className={utilStyles.lightText}>
+              10th of December, 2022
+            </small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                className={styles.thumbnailImage}
+              />
+            </Link>
+            <Link href="/">
+              <p className={utilStyles.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </p>
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>
+              10th of December, 2022
+            </small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                className={styles.thumbnailImage}
+              />
+            </Link>
+            <Link href="/">
+              <p className={utilStyles.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </p>
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>
+              10th of December, 2022
+            </small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                className={styles.thumbnailImage}
+              />
+            </Link>
+            <Link href="/">
+              <p className={utilStyles.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </p>
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>
+              10th of December, 2022
+            </small>
           </article>
         </div>
       </section>
