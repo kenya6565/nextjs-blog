@@ -12,10 +12,9 @@ export function getPostsData() {
     // md を除いたファイル名
     const id = fileName.replace(/\.md$/, "");
 
-    // マークダウンファイルを文字列として読み取る
     const fullPath = path.join(postsDirectory, fileName);
 
-    // mdファイルの中身をstringで取得
+    //  マークダウンファイルを文字列として読み取る
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     // メタデータの解析(titleとか)
