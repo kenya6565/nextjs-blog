@@ -26,7 +26,16 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home(allPostsData: any) {
+// SSRの場合
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      // コンポーネントに渡すためのプロップス
+    }
+  }
+}
+
+export default function Home(allPostsData: PostData[]) {
   return (
     <Layout>
       <section className={utilStyles.heddingMd}>
