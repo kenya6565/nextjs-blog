@@ -4,8 +4,22 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
+import { getPostsData } from "../lib/post";
 
-export default function Home() {
+// SSGの場合
+export async function getStaticProps() {
+  // id, title, date, thumbnail
+  const allPostsData = getPostsData();
+  console.log(allPostsData);
+
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({ allPostsData }: object) {
   return (
     <Layout>
       <section className={utilStyles.heddingMd}>
