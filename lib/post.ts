@@ -9,7 +9,7 @@ const postsDirectory = path.join(process.cwd(), "posts");
 export function getPostsData() {
   const fileNames: Array<string> = fs.readdirSync(postsDirectory, "utf8");
 
-  const allPostsData: object = fileNames.map((fileName: string) => {
+  const allPostsData: object[] = fileNames.map((fileName: string) => {
     // md を除いたファイル名
     const id: string = fileName.replace(/\.md$/, "");
 
