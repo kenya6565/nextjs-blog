@@ -7,6 +7,11 @@ const postsDirectory = path.join(process.cwd(), "posts");
 
 // mdファイルを配列として取得
 export function getPostsData() {
+  // 外部APIやデータベースからデータを取得する場合は非同期処理でデータを取得して
+  // getServerSideProps()の中で呼び出してあげる
+  // const fetchData = await fetch("endpoint");
+
+  
   const fileNames: Array<string> = fs.readdirSync(postsDirectory, "utf8");
 
   const allPostsData: object[] = fileNames.map((fileName: string) => {
