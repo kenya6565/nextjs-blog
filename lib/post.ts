@@ -59,6 +59,8 @@ export function getAllPostIds() {
       },
     };
   });
+  // この形で取得する
+  参考: https://nextjs.org/docs/basic-features/data-fetching/get-static-paths
   // [
   //   {
   //     params: {
