@@ -11,7 +11,6 @@ export function getPostsData() {
   // getServerSideProps()の中で呼び出してあげる
   // const fetchData = await fetch("endpoint");
 
-  
   const fileNames: Array<string> = fs.readdirSync(postsDirectory, "utf8");
 
   const allPostsData: object[] = fileNames.map((fileName: string) => {
@@ -31,6 +30,45 @@ export function getPostsData() {
       id,
       ...matterResult,
     };
+    // [
+    //   {
+    //     id: "hoge",
+    //     title: "hoge",
+    //     date: "hoge",
+    //     thumbnail: "hoge",
+    //   },
+    //  {
+    //     id: "hoge",
+    //     title: "hoge",
+    //     date: "hoge",
+    //     thumbnail: "hoge",
+    //   },
+
+    // ];
   });
   return allPostsData;
+}
+
+// getStaticPathでreturnで使うpathを取得する
+export function getAllPostIds() {
+  const fileNames: Array<string> = fs.readdirSync(postsDirectory, "utf8");
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ""),
+      },
+    };
+  });
+  // [
+  //   {
+  //     params: {
+  //       id: "ssg-ssr"
+  //     }
+  //   },
+  //   {
+  //     params: {
+  //       id: "next-react"
+  //     }
+  //   }
+  // ]
 }
