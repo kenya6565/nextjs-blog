@@ -78,7 +78,7 @@ export function getAllPostIds() {
 }
 
 // idに基づいて異なったブログ投稿データを返す
-export function getPostData(id) {
+export async function getPostData(id) {
   const fullPath: string = path.join(postsDirectory, `${id}.md`);
 
   //  マークダウンファイルを文字列として読み取る

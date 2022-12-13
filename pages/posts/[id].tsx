@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { getAllPostIds } from "../../lib/post";
+import { getAllPostIds, getPostData } from "../../lib/post";
 
 // SSGで動的ルーティングを設定する
 export async function getStaticPaths() {
@@ -13,8 +13,17 @@ export async function getStaticPaths() {
   };
 }
 
-export function getStaticProps({ params }) {}
+// SSGでブログの中身を表示する
+// URL(params.id)でどのブログの中身を表示するか判断する
+export async function getStaticProps({ params }) {
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
+}
 
-export default function Post() {
-  return <Layout>動的ルーティング設定</Layout>;
+export default function Post({ postData }) {
+  return <Layout>{postData.title}</Layout>;
 }
