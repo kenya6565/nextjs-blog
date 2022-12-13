@@ -1,6 +1,8 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { remark } from "remark";
+import html from "remark-html";
 
 // process.cwd = get current directory path
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -60,7 +62,7 @@ export function getAllPostIds() {
     };
   });
   // この形で取得する
-  参考: https://nextjs.org/docs/basic-features/data-fetching/get-static-paths
+  // 参考: https://nextjs.org/docs/basic-features/data-fetching/get-static-paths
   // [
   //   {
   //     params: {
@@ -73,4 +75,27 @@ export function getAllPostIds() {
   //     }
   //   }
   // ]
+}
+
+// idに基づいて異なったブログ投稿データを返す
+export function getPostData(id) {
+  const fullPath: string = path.join(postsDirectory, `${id}.md`);
+
+  //  マークダウンファイルを文字列として読み取る
+  const fileContents: string = fs.readFileSync(fullPath, "utf8");
+
+  // メタデータの解析(titleとか)
+  const matterResult: any = matter(fileContents);
+
+  // matterResult.contentのままではマークダウン記法ではなくただの文字列になってしまう
+  // remarkを使ってhtmlにparseする
+  const blogContent = await remark().use(html).process(matterResult.content);
+
+  const blogContentHtml: string = blogContent.toString();
+
+  return {
+    id,
+    blogContentHtml,
+    ...matterResult.data,
+  };
 }

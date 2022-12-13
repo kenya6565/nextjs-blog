@@ -1,5 +1,5 @@
-import Layout from '../../components/Layout';
-import { getAllPostIds } from '../../lib/post';
+import Layout from "../../components/Layout";
+import { getAllPostIds } from "../../lib/post";
 
 // SSGで動的ルーティングを設定する
 export async function getStaticPaths() {
@@ -10,11 +10,11 @@ export async function getStaticPaths() {
 
     // falseにすると上のパス以外にアクセすると404になるようになる
     fallback: false,
-  }
+  };
 }
 
+export function getStaticProps({ params }) {}
+
 export default function Post() {
-  return (
-    <Layout>動的ルーティング設定</Layout>
-  );
+  return <Layout>動的ルーティング設定</Layout>;
 }
