@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import { getAllPostIds, getPostData } from "../../lib/post";
+import utilStyles from "../../styles/utils.module.css";
 
 // SSGで動的ルーティングを設定する
 export async function getStaticPaths() {
@@ -25,5 +26,15 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ postData }) {
-  return <Layout>{postData.title}</Layout>;
+  return (
+    <Layout>
+      <article>
+        <h1 className={utilStyles.headingX1}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>{postData.date}</div>
+
+        {/*  you need to sanitize content to use dangerouslySetInnerHTML */}
+        <div dangerouslySetInnerHTML={{ __html: postData.blogContentHTML }} />
+      </article>
+    </Layout>
+  );
 }
