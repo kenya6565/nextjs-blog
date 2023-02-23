@@ -13,6 +13,7 @@ export function getPostsData() {
   // getServerSideProps()の中で呼び出してあげる
   // const fetchData = await fetch("endpoint");
 
+  // get file name in posts directory as array
   const fileNames: Array<string> = fs.readdirSync(postsDirectory, "utf8");
 
   const allPostsData: object[] = fileNames.map((fileName: string) => {
@@ -25,6 +26,7 @@ export function getPostsData() {
     const fileContents: string = fs.readFileSync(fullPath, "utf8");
 
     // メタデータの解析(titleとか)
+    // get metadata in md files as array
     const matterResult: object = matter(fileContents).data;
 
     // idとデータを返す
@@ -32,6 +34,8 @@ export function getPostsData() {
       id,
       ...matterResult,
     };
+
+    // sample as matterResult
     // [
     //   {
     //     id: "hoge",
