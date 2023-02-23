@@ -13,7 +13,7 @@ function Layout({ children }: any) {
       </Head>
       <header className={styles.header}>
         <img
-          src="images/profile.png"
+          src="/images/profile.png"
           alt="Vercel Logo"
           className={utilStyles.borderCircle}
         />

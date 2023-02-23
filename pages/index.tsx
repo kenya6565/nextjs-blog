@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
@@ -27,6 +25,7 @@ export async function getStaticProps() {
 }
 
 // SSRの場合
+// context includes thd data users requested
 // export async function getServerSideProps(context) {
 //   return {
 //     props: {
