@@ -2,7 +2,7 @@ import Layout from "../../components/Layout";
 import { getAllPostIds, getPostData } from "../../lib/post";
 import utilStyles from "../../styles/utils.module.css";
 
-// SSGで動的ルーティングを設定する
+// return paths used as dynamic routing
 export async function getStaticPaths() {
   const paths = getAllPostIds();
 
@@ -16,6 +16,7 @@ export async function getStaticPaths() {
 
 // SSGでブログの中身を表示する
 // URL(params.id)でどのブログの中身を表示するか判断する
+// params = return val of method getStaticPaths
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
   return {
