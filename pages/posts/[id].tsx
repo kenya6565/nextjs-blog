@@ -25,7 +25,6 @@ export async function getStaticProps({ params }) {
     },
   };
 }
-
 export default function Post({ postData }) {
   return (
     <Layout>
@@ -34,7 +33,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>{postData.date}</div>
 
         {/*  you need to sanitize content to use dangerouslySetInnerHTML */}
-        <div dangerouslySetInnerHTML={{ __html: postData.blogContentHTML }} />
+        <div dangerouslySetInnerHTML={{ __html: postData.blogContentHtml }} />
       </article>
     </Layout>
   );
