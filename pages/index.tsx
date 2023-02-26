@@ -3,6 +3,8 @@ import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 import utilStyles from "../styles/utils.module.css";
 import { getPostsData } from "../lib/post";
+import { siteTitle } from "../components/Layout";
+import Head from "next/head";
 
 interface PostData {
   id: string;
@@ -37,6 +39,9 @@ export async function getStaticProps() {
 export default function Home(allPostsData: PostData[]) {
   return (
     <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={utilStyles.heddingMd}>
         <p>私はエンジニアです。</p>
       </section>
