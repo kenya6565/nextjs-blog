@@ -36,7 +36,7 @@ export async function getStaticProps() {
 
 export default function Home(allPostsData: PostData[]) {
   return (
-    <Layout>
+    <Layout home>
       <section className={utilStyles.heddingMd}>
         <p>私はエンジニアです。</p>
       </section>
