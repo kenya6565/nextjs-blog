@@ -9,7 +9,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-
     // falseにすると上のパス以外にアクセすると404になるようになる
     fallback: false,
   };
